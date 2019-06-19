@@ -29,7 +29,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-		<string>arkit</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
