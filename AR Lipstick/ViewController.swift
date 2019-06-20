@@ -34,7 +34,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "segue",
-            let vc = segue.destination as? LipstickTableViewController
+            let nav = segue.destination as? UINavigationController,
+            let vc = nav.viewControllers.first as? LipstickTableViewController
             else { return }
         vc.delegate = self
     }
@@ -51,9 +52,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelega
         let faceGeometry = ARSCNFaceGeometry(device: sceneView.device!)!
         
         let material = faceGeometry.firstMaterial!
+        // Shape of lips
         material.diffuse.contents = #imageLiteral(resourceName: "wireframeTexture")
+        // Lipstick color
         material.multiply.contents = lipstickColor
+        // More realistic
         material.lightingModel = .physicallyBased
+        material.transparency = 0.82
         
         let mask = SCNNode(geometry: faceGeometry)
         masks.insert(mask)
@@ -97,7 +102,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lipstickColor = .red
         sceneView.delegate = self
         sceneView.automaticallyUpdatesLighting = true
     }

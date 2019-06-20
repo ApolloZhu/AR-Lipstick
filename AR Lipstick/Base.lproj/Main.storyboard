@@ -22,7 +22,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNs-3M-Qnn">
                                 <rect key="frame" x="0.0" y="583.5" width="414" height="312.5"/>
                                 <connections>
-                                    <segue destination="mBu-aJ-Iw4" kind="embed" identifier="segue" id="raA-dc-0OF"/>
+                                    <segue destination="K1C-T4-TTt" kind="embed" identifier="segue" id="raA-dc-0OF"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -47,12 +47,12 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Lipstick Table View Controller-->
+        <!--Lipsticks-->
         <scene sceneID="8B7-1e-IDE">
             <objects>
-                <tableViewController storyboardIdentifier="lipstickChooserTable" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="lipstickChooserTable" title="Lipsticks" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="3ZD-FR-0RT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="286.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="312.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -79,10 +79,29 @@
                             <outlet property="delegate" destination="mBu-aJ-Iw4" id="vdb-Xe-mAh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Lipsticks" largeTitleDisplayMode="always" id="PYq-Au-h0q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEx-cn-edY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="138"/>
+            <point key="canvasLocation" x="1784.057971014493" y="137.61160714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P7b-4n-YyX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K1C-T4-TTt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5dT-Gc-xSL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mBu-aJ-Iw4" kind="relationship" relationship="rootViewController" id="w5D-r5-lhs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBi-6n-jI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876.81159420289862" y="137.61160714285714"/>
         </scene>
     </scenes>
 </document>
