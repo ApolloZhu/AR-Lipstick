@@ -19,23 +19,25 @@ import ARKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if targetEnvironment(simulator)
         #error("iOS Simulator doesn't have a camera. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
         #endif
         if !ARFaceTrackingConfiguration.isSupported {
+            fatalError("Sorry, Vision based virtual lipstick is not yet implemented")
             /*
              This sample code has no features other than a demo of ARKit face tracking, so
              it replaces the AR view (the initial storyboard in the view controller) with
              an alternate view controller containing a static error message.
+             
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "unsupportedDeviceMessage")
              */
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "unsupportedDeviceMessage")
         }
         return true
     }
-
+    
 }

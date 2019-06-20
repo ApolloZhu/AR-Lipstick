@@ -18,25 +18,25 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: LipstickChooserPresentingViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelegate {
     // MARK: - Lipstick
-    
-    var currentTexture: UIImage!
-    var lipstickColor: UIColor = .clear {
+    var lipstickColor: UIColor = .black {
         didSet {
-            DispatchQueue.global().async { [weak self] in
-                guard let self = self else { return }
-                self.currentTexture = #imageLiteral(resourceName: "wireframeTexture").withTintColor(self.lipstickColor)
-                let geometries = self.masks.compactMap { $0.geometry as? ARSCNFaceGeometry }
-                for faceGeometry in geometries {
-                    faceGeometry.firstMaterial!.diffuse.contents = self.currentTexture
-                }
+            for mask in masks where mask.geometry is ARSCNFaceGeometry {
+                mask.geometry?.firstMaterial?.multiply.contents = lipstickColor
             }
         }
     }
     
-    override func didChooseLipstick(_ lipstick: Lipstick) {
+    func didChooseLipstick(_ lipstick: Lipstick) {
         lipstickColor = lipstick.color
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "segue",
+            let vc = segue.destination as? LipstickTableViewController
+            else { return }
+        vc.delegate = self
     }
     
     // MARK: - Rendering
@@ -51,7 +51,8 @@ class ViewController: LipstickChooserPresentingViewController, ARSCNViewDelegate
         let faceGeometry = ARSCNFaceGeometry(device: sceneView.device!)!
         
         let material = faceGeometry.firstMaterial!
-        material.diffuse.contents = lipstickColor == .clear ? UIColor.clear : currentTexture
+        material.diffuse.contents = #imageLiteral(resourceName: "wireframeTexture")
+        material.multiply.contents = lipstickColor
         material.lightingModel = .physicallyBased
         
         let mask = SCNNode(geometry: faceGeometry)
@@ -113,19 +114,6 @@ class ViewController: LipstickChooserPresentingViewController, ARSCNViewDelegate
         super.viewWillDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
         sceneView.session.pause()
-    }
-    
-    @IBOutlet weak var overlay: UIVisualEffectView!
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Present overlay to indicate session been interrupted.
-        overlay.isHidden = false
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking, remove existing anchors and overlay.
-        resetTracking()
-        overlay.isHidden = true
     }
     
     // MARK: - Error Handling

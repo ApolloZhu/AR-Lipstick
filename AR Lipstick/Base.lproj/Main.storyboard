@@ -5,10 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,32 +19,27 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
-                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xI-md-dNJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lrS-cb-0rC">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <vibrancyEffect>
-                                    <blurEffect style="regular"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNs-3M-Qnn">
+                                <rect key="frame" x="0.0" y="583.5" width="414" height="312.5"/>
+                                <connections>
+                                    <segue destination="mBu-aJ-Iw4" kind="embed" identifier="segue" id="raA-dc-0OF"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2xI-md-dNJ" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="top" id="FnP-QF-AoN"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="2xI-md-dNJ" firstAttribute="leading" secondItem="BrB-h1-WRS" secondAttribute="leading" id="NPl-ey-UuE"/>
+                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="TFT-AU-T1P"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="U0K-SW-4ec" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="2xI-md-dNJ" firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="Yef-m3-7O0"/>
-                            <constraint firstItem="2xI-md-dNJ" firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="cOy-Rx-JZD"/>
+                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="di5-IE-ciu"/>
+                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="height" secondItem="fQZ-KI-GVf" secondAttribute="height" multiplier="0.382" id="gge-Pb-oxi"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstAttribute="trailing" secondItem="bNs-3M-Qnn" secondAttribute="trailing" id="vPJ-Hk-5qZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
-                        <outlet property="overlay" destination="2xI-md-dNJ" id="y5d-E4-LDf"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
@@ -55,108 +47,42 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Lipstick Collection View Controller-->
-        <scene sceneID="JkK-2v-Jec">
+        <!--Lipstick Table View Controller-->
+        <scene sceneID="8B7-1e-IDE">
             <objects>
-                <collectionViewController storyboardIdentifier="lipstickChooser" id="svr-B0-Mvr" customClass="LipstickCollectionViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="aP9-cq-FBk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <tableViewController storyboardIdentifier="lipstickChooserTable" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="3ZD-FR-0RT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="286.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DaY-Ld-EV0">
-                            <size key="itemSize" width="153" height="155"/>
-                            <size key="headerReferenceSize" width="50" height="130"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="yI9-TM-bGP" customClass="LipstickCollectionViewCell" customModule="AR_Lipstick" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="153" height="155"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7SH-vN-Rox">
-                                    <rect key="frame" x="0.0" y="0.0" width="153" height="155"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="LAO-Gz-8Mb" style="IBUITableViewCellStyleDefault" id="1xW-HR-EXD">
+                                <rect key="frame" x="20" y="55.5" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1xW-HR-EXD" id="8j2-KZ-6z3">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-tq-2Yw">
-                                            <rect key="frame" x="20" y="20" width="113" height="115"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1c-GX-wGe">
-                                                    <rect key="frame" x="15" y="0.0" width="83" height="83"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="systemPinkColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Q1c-GX-wGe" secondAttribute="height" multiplier="1:1" id="n5w-bJ-DAJ"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <real key="value" value="41.5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BM7-PH-dB6">
-                                                    <rect key="frame" x="31" y="91" width="51.5" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="DLB-tq-2Yw" firstAttribute="leading" secondItem="7SH-vN-Rox" secondAttribute="leading" constant="20" symbolic="YES" id="GME-Bp-H6z"/>
-                                        <constraint firstAttribute="bottom" secondItem="DLB-tq-2Yw" secondAttribute="bottom" constant="20" symbolic="YES" id="bj3-st-dve"/>
-                                        <constraint firstAttribute="trailing" secondItem="DLB-tq-2Yw" secondAttribute="trailing" constant="20" symbolic="YES" id="d9d-Yc-LBA"/>
-                                        <constraint firstItem="DLB-tq-2Yw" firstAttribute="top" secondItem="7SH-vN-Rox" secondAttribute="top" constant="20" symbolic="YES" id="syl-oL-vPy"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="153" height="155"/>
-                                <connections>
-                                    <outlet property="colorView" destination="Q1c-GX-wGe" id="opi-0N-M3T"/>
-                                    <outlet property="nameLabel" destination="BM7-PH-dB6" id="6d9-mp-CZE"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="m4T-Q7-sxf" customClass="LipstickCollectionViewHeader" customModule="AR_Lipstick" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WRf-S5-XlY">
-                                    <rect key="frame" x="20" y="20" width="374" height="90"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-nB-J2m">
-                                            <rect key="frame" x="0.0" y="0.0" width="76.5" height="36"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-Vr-mYd">
-                                            <rect key="frame" x="0.0" y="58.5" width="70" height="31.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LAO-Gz-8Mb">
+                                            <rect key="frame" x="15" y="0.0" width="351" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                </stackView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="WRf-S5-XlY" firstAttribute="top" secondItem="m4T-Q7-sxf" secondAttribute="top" constant="20" id="VpD-ce-5FP"/>
-                                <constraint firstItem="WRf-S5-XlY" firstAttribute="leading" secondItem="m4T-Q7-sxf" secondAttribute="leading" constant="20" id="YNz-YT-6tv"/>
-                                <constraint firstAttribute="bottom" secondItem="WRf-S5-XlY" secondAttribute="bottom" constant="20" id="cFP-HA-Jo4"/>
-                                <constraint firstAttribute="trailing" secondItem="WRf-S5-XlY" secondAttribute="trailing" constant="20" id="gKb-aM-YSb"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="brandLabel" destination="WdX-nB-J2m" id="MNy-0a-OtJ"/>
-                                <outlet property="seriesLabel" destination="Ndo-Vr-mYd" id="jRk-mi-B7c"/>
-                            </connections>
-                        </collectionReusableView>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="svr-B0-Mvr" id="3dK-Cc-GXI"/>
-                            <outlet property="delegate" destination="svr-B0-Mvr" id="D34-43-zob"/>
+                            <outlet property="dataSource" destination="mBu-aJ-Iw4" id="bln-k3-666"/>
+                            <outlet property="delegate" destination="mBu-aJ-Iw4" id="vdb-Xe-mAh"/>
                         </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BLd-rM-3aQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEx-cn-edY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900.00000000000011" y="137.94642857142856"/>
+            <point key="canvasLocation" x="878" y="138"/>
         </scene>
     </scenes>
 </document>

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ED5DE6174F79F104F581A55 /* libPods-AR Lipstick.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8943FAF4DB7BBEDC4BDF0C2D /* libPods-AR Lipstick.a */; };
 		526078DE22BA080800CC91A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526078DD22BA080800CC91A4 /* ViewController.swift */; };
 		526BEC1122B9BBC2008E60C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BEC1022B9BBC2008E60C1 /* AppDelegate.swift */; };
 		526BEC1822B9BBC5008E60C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BEC1622B9BBC5008E60C1 /* Main.storyboard */; };
@@ -15,10 +14,7 @@
 		526BEC1D22B9BC14008E60C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BEC1B22B9BC14008E60C1 /* LaunchScreen.storyboard */; };
 		52753EB622BB558000AEA1B1 /* lipstick.json in Resources */ = {isa = PBXBuildFile; fileRef = 52753EB522BB558000AEA1B1 /* lipstick.json */; };
 		52753EB822BB55C300AEA1B1 /* Lipstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EB722BB55C300AEA1B1 /* Lipstick.swift */; };
-		52753EBB22BB6CC400AEA1B1 /* LipstickCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EBA22BB6CC400AEA1B1 /* LipstickCollectionViewController.swift */; };
-		52753EBD22BB6D9100AEA1B1 /* LipstickCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EBC22BB6D9100AEA1B1 /* LipstickCollectionViewCell.swift */; };
-		52753EBF22BB6E8E00AEA1B1 /* LipstickCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EBE22BB6E8E00AEA1B1 /* LipstickCollectionViewHeader.swift */; };
-		52753EC122BB79B100AEA1B1 /* LipstickChooserPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EC022BB79B100AEA1B1 /* LipstickChooserPresentingViewController.swift */; };
+		52753EC322BB8C8300AEA1B1 /* LipstickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +26,8 @@
 		526BEC1C22B9BC14008E60C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		526BEC1E22B9BC14008E60C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52753EB522BB558000AEA1B1 /* lipstick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lipstick.json; sourceTree = "<group>"; };
-		52753EB722BB55C300AEA1B1 /* Lipstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lipstick.swift"; sourceTree = "<group>"; };
-		52753EBA22BB6CC400AEA1B1 /* LipstickCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickCollectionViewController.swift"; sourceTree = "<group>"; };
-		52753EBC22BB6D9100AEA1B1 /* LipstickCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickCollectionViewCell.swift"; sourceTree = "<group>"; };
-		52753EBE22BB6E8E00AEA1B1 /* LipstickCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickCollectionViewHeader.swift"; sourceTree = "<group>"; };
-		52753EC022BB79B100AEA1B1 /* LipstickChooserPresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickChooserPresentingViewController.swift"; sourceTree = "<group>"; };
-		71BBF6302F77B52AF886D75F /* Pods-AR Lipstick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.debug.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.debug.xcconfig"; sourceTree = "<group>"; };
-		80F606B93A7A01E413507302 /* Pods-AR Lipstick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.release.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.release.xcconfig"; sourceTree = "<group>"; };
-		8943FAF4DB7BBEDC4BDF0C2D /* libPods-AR Lipstick.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AR Lipstick.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52753EB722BB55C300AEA1B1 /* Lipstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lipstick.swift; sourceTree = "<group>"; };
+		52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickTableViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ED5DE6174F79F104F581A55 /* libPods-AR Lipstick.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +44,6 @@
 		43A539F7DB6D4C63311E14DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				71BBF6302F77B52AF886D75F /* Pods-AR Lipstick.debug.xcconfig */,
-				80F606B93A7A01E413507302 /* Pods-AR Lipstick.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -67,7 +54,6 @@
 				526BEC0F22B9BBC2008E60C1 /* AR Lipstick */,
 				526BEC0E22B9BBC2008E60C1 /* Products */,
 				43A539F7DB6D4C63311E14DE /* Pods */,
-				DE12DFB070C53C6D536A0656 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,10 +70,7 @@
 			children = (
 				526BEC1022B9BBC2008E60C1 /* AppDelegate.swift */,
 				526078DD22BA080800CC91A4 /* ViewController.swift */,
-				52753EC022BB79B100AEA1B1 /* LipstickChooserPresentingViewController.swift */,
-				52753EBA22BB6CC400AEA1B1 /* LipstickCollectionViewController.swift */,
-				52753EBC22BB6D9100AEA1B1 /* LipstickCollectionViewCell.swift */,
-				52753EBE22BB6E8E00AEA1B1 /* LipstickCollectionViewHeader.swift */,
+				52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */,
 				52753EB722BB55C300AEA1B1 /* Lipstick.swift */,
 				52753EB522BB558000AEA1B1 /* lipstick.json */,
 				526BEC1622B9BBC5008E60C1 /* Main.storyboard */,
@@ -98,14 +81,6 @@
 			path = "AR Lipstick";
 			sourceTree = "<group>";
 		};
-		DE12DFB070C53C6D536A0656 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8943FAF4DB7BBEDC4BDF0C2D /* libPods-AR Lipstick.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,7 +88,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 526BEC2122B9BC14008E60C1 /* Build configuration list for PBXNativeTarget "AR Lipstick" */;
 			buildPhases = (
-				9DD9EEEE2D834A55A940CE27 /* [CP] Check Pods Manifest.lock */,
 				526BEC0922B9BBC0008E60C1 /* Sources */,
 				526BEC0A22B9BBC0008E60C1 /* Frameworks */,
 				526BEC0B22B9BBC0008E60C1 /* Resources */,
@@ -174,31 +148,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		9DD9EEEE2D834A55A940CE27 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AR Lipstick-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		526BEC0922B9BBC0008E60C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -206,11 +155,8 @@
 			files = (
 				526078DE22BA080800CC91A4 /* ViewController.swift in Sources */,
 				52753EB822BB55C300AEA1B1 /* Lipstick.swift in Sources */,
-				52753EC122BB79B100AEA1B1 /* LipstickChooserPresentingViewController.swift in Sources */,
-				52753EBF22BB6E8E00AEA1B1 /* LipstickCollectionViewHeader.swift in Sources */,
+				52753EC322BB8C8300AEA1B1 /* LipstickTableViewController.swift in Sources */,
 				526BEC1122B9BBC2008E60C1 /* AppDelegate.swift in Sources */,
-				52753EBB22BB6CC400AEA1B1 /* LipstickCollectionViewController.swift in Sources */,
-				52753EBD22BB6D9100AEA1B1 /* LipstickCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +298,6 @@
 		};
 		526BEC2222B9BC14008E60C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71BBF6302F77B52AF886D75F /* Pods-AR Lipstick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -374,7 +319,6 @@
 		};
 		526BEC2322B9BC14008E60C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80F606B93A7A01E413507302 /* Pods-AR Lipstick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
