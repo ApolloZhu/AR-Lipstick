@@ -9,3 +9,7 @@ Mainly based on Apple’s sample code [Tracking and Visualizing Faces](https://d
 ## Vision
 
 See [VNFaceLandmarks2D](https://developer.apple.com/documentation/vision/vnfacelandmarks2d)
+
+## Acknowledgements
+
+List of lipstick colors (and their names/brands in Chinese) are from [Ovilia/lipstick](https://github.com/Ovilia/lipstick).
