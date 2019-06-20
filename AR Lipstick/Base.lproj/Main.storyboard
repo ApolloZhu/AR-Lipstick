@@ -5,7 +5,10 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -51,6 +54,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Lipstick Collection View Controller-->
+        <scene sceneID="JkK-2v-Jec">
+            <objects>
+                <collectionViewController storyboardIdentifier="lipstickChooser" id="svr-B0-Mvr" customClass="LipstickCollectionViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="aP9-cq-FBk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DaY-Ld-EV0">
+                            <size key="itemSize" width="153" height="155"/>
+                            <size key="headerReferenceSize" width="50" height="130"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="yI9-TM-bGP" customClass="LipstickCollectionViewCell" customModule="AR_Lipstick" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="130" width="153" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7SH-vN-Rox">
+                                    <rect key="frame" x="0.0" y="0.0" width="153" height="155"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-tq-2Yw">
+                                            <rect key="frame" x="20" y="20" width="113" height="115"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1c-GX-wGe">
+                                                    <rect key="frame" x="15" y="0.0" width="83" height="83"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="systemPinkColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Q1c-GX-wGe" secondAttribute="height" multiplier="1:1" id="n5w-bJ-DAJ"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="41.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BM7-PH-dB6">
+                                                    <rect key="frame" x="31" y="91" width="51.5" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DLB-tq-2Yw" firstAttribute="leading" secondItem="7SH-vN-Rox" secondAttribute="leading" constant="20" symbolic="YES" id="GME-Bp-H6z"/>
+                                        <constraint firstAttribute="bottom" secondItem="DLB-tq-2Yw" secondAttribute="bottom" constant="20" symbolic="YES" id="bj3-st-dve"/>
+                                        <constraint firstAttribute="trailing" secondItem="DLB-tq-2Yw" secondAttribute="trailing" constant="20" symbolic="YES" id="d9d-Yc-LBA"/>
+                                        <constraint firstItem="DLB-tq-2Yw" firstAttribute="top" secondItem="7SH-vN-Rox" secondAttribute="top" constant="20" symbolic="YES" id="syl-oL-vPy"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="153" height="155"/>
+                                <connections>
+                                    <outlet property="colorView" destination="Q1c-GX-wGe" id="opi-0N-M3T"/>
+                                    <outlet property="nameLabel" destination="BM7-PH-dB6" id="6d9-mp-CZE"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="m4T-Q7-sxf" customClass="LipstickCollectionViewHeader" customModule="AR_Lipstick" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WRf-S5-XlY">
+                                    <rect key="frame" x="20" y="20" width="374" height="90"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-nB-J2m">
+                                            <rect key="frame" x="0.0" y="0.0" width="76.5" height="36"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-Vr-mYd">
+                                            <rect key="frame" x="0.0" y="58.5" width="70" height="31.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="WRf-S5-XlY" firstAttribute="top" secondItem="m4T-Q7-sxf" secondAttribute="top" constant="20" id="VpD-ce-5FP"/>
+                                <constraint firstItem="WRf-S5-XlY" firstAttribute="leading" secondItem="m4T-Q7-sxf" secondAttribute="leading" constant="20" id="YNz-YT-6tv"/>
+                                <constraint firstAttribute="bottom" secondItem="WRf-S5-XlY" secondAttribute="bottom" constant="20" id="cFP-HA-Jo4"/>
+                                <constraint firstAttribute="trailing" secondItem="WRf-S5-XlY" secondAttribute="trailing" constant="20" id="gKb-aM-YSb"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="brandLabel" destination="WdX-nB-J2m" id="MNy-0a-OtJ"/>
+                                <outlet property="seriesLabel" destination="Ndo-Vr-mYd" id="jRk-mi-B7c"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="svr-B0-Mvr" id="3dK-Cc-GXI"/>
+                            <outlet property="delegate" destination="svr-B0-Mvr" id="D34-43-zob"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLd-rM-3aQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900.00000000000011" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

@@ -18,7 +18,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: LipstickChooserPresentingViewController, ARSCNViewDelegate {
     // MARK: - Lipstick
     
     var currentTexture: UIImage!
@@ -33,6 +33,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
         }
+    }
+    
+    override func didChooseLipstick(_ lipstick: Lipstick) {
+        lipstickColor = lipstick.color
     }
     
     // MARK: - Rendering
@@ -92,7 +96,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lipstickColor = .red
         sceneView.delegate = self
         sceneView.automaticallyUpdatesLighting = true
     }
