@@ -26,10 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if targetEnvironment(simulator)
         #error("iOS Simulator doesn't have a camera. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
         #endif
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "vision")
         if !ARFaceTrackingConfiguration.isSupported {
-            print("later")
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "vision")
         }
         return true
     }

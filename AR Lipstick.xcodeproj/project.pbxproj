@@ -30,6 +30,8 @@
 		52753EB722BB55C300AEA1B1 /* Lipstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lipstick.swift; sourceTree = "<group>"; };
 		52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipstickTableViewController.swift; sourceTree = "<group>"; };
 		52753EC422BC313200AEA1B1 /* FallbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FallbackViewController.swift; path = "../../../../../apollonian/Documents/Git-Repo/AR-Lipstick/AR Lipstick/FallbackViewController.swift"; sourceTree = "<group>"; };
+		52753EC622BC67BC00AEA1B1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../../apollonian/Documents/Git-Repo/AR-Lipstick/README.md"; sourceTree = "<group>"; };
+		52753EC722BC67D200AEA1B1 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = "../../../../apollonian/Documents/Git-Repo/AR-Lipstick/LICENSE"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,8 @@
 		526BEC0422B9BBBF008E60C1 = {
 			isa = PBXGroup;
 			children = (
+				52753EC622BC67BC00AEA1B1 /* README.md */,
+				52753EC722BC67D200AEA1B1 /* LICENSE */,
 				526BEC0F22B9BBC2008E60C1 /* AR Lipstick */,
 				526BEC0E22B9BBC2008E60C1 /* Products */,
 				43A539F7DB6D4C63311E14DE /* Pods */,
