@@ -43,6 +43,7 @@ class LipstickTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let lipstick = allLipstickSeries[indexPath.section].lipsticks[indexPath.row]
         cell.textLabel!.text = "#\(lipstick.id)" + (lipstick.name.isEmpty ? "" : " \(lipstick.name)")
+        cell.textLabel!.textColor = .white
         cell.backgroundColor = lipstick.color
         return cell
     }
