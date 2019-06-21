@@ -15,6 +15,7 @@
 		52753EB622BB558000AEA1B1 /* lipstick.json in Resources */ = {isa = PBXBuildFile; fileRef = 52753EB522BB558000AEA1B1 /* lipstick.json */; };
 		52753EB822BB55C300AEA1B1 /* Lipstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EB722BB55C300AEA1B1 /* Lipstick.swift */; };
 		52753EC322BB8C8300AEA1B1 /* LipstickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */; };
+		52753EC522BC313200AEA1B1 /* FallbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EC422BC313200AEA1B1 /* FallbackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		526BEC1E22B9BC14008E60C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52753EB522BB558000AEA1B1 /* lipstick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lipstick.json; sourceTree = "<group>"; };
 		52753EB722BB55C300AEA1B1 /* Lipstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lipstick.swift; sourceTree = "<group>"; };
-		52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickTableViewController.swift"; sourceTree = "<group>"; };
+		52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipstickTableViewController.swift; sourceTree = "<group>"; };
+		52753EC422BC313200AEA1B1 /* FallbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FallbackViewController.swift; path = "../../../../../apollonian/Documents/Git-Repo/AR-Lipstick/AR Lipstick/FallbackViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				526BEC1022B9BBC2008E60C1 /* AppDelegate.swift */,
 				526078DD22BA080800CC91A4 /* ViewController.swift */,
+				52753EC422BC313200AEA1B1 /* FallbackViewController.swift */,
 				52753EC222BB8C8300AEA1B1 /* LipstickTableViewController.swift */,
 				52753EB722BB55C300AEA1B1 /* Lipstick.swift */,
 				52753EB522BB558000AEA1B1 /* lipstick.json */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				526078DE22BA080800CC91A4 /* ViewController.swift in Sources */,
+				52753EC522BC313200AEA1B1 /* FallbackViewController.swift in Sources */,
 				52753EB822BB55C300AEA1B1 /* Lipstick.swift in Sources */,
 				52753EC322BB8C8300AEA1B1 /* LipstickTableViewController.swift in Sources */,
 				526BEC1122B9BBC2008E60C1 /* AppDelegate.swift in Sources */,

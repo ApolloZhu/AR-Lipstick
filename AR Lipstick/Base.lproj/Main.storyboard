@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNs-3M-Qnn">
-                                <rect key="frame" x="0.0" y="583.5" width="414" height="312.5"/>
+                                <rect key="frame" x="0.0" y="553.5" width="414" height="342.5"/>
                                 <connections>
                                     <segue destination="K1C-T4-TTt" kind="embed" identifier="segue" id="raA-dc-0OF"/>
                                 </connections>
@@ -33,7 +33,7 @@
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="U0K-SW-4ec" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="bNs-3M-Qnn" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="di5-IE-ciu"/>
-                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="height" secondItem="fQZ-KI-GVf" secondAttribute="height" multiplier="0.382" id="gge-Pb-oxi"/>
+                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="height" secondItem="U0K-SW-4ec" secondAttribute="height" multiplier="0.382" id="gge-Pb-oxi"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstAttribute="trailing" secondItem="bNs-3M-Qnn" secondAttribute="trailing" id="vPJ-Hk-5qZ"/>
                         </constraints>
@@ -52,7 +52,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="lipstickChooserTable" title="Lipsticks" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="3ZD-FR-0RT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="312.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="342.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -103,5 +103,37 @@
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="137.61160714285714"/>
         </scene>
+        <!--Fallback View Controller-->
+        <scene sceneID="jZa-Fz-e2n">
+            <objects>
+                <viewController storyboardIdentifier="vision" id="hbs-v7-Bwc" customClass="FallbackViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w2E-xc-uCp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-te-NQE">
+                                <rect key="frame" x="0.0" y="553.5" width="414" height="342.5"/>
+                                <connections>
+                                    <segue destination="K1C-T4-TTt" kind="embed" identifier="segue" id="JIy-s8-NBd"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Bf-te-NQE" firstAttribute="leading" secondItem="w2E-xc-uCp" secondAttribute="leading" id="9Xx-IW-cc8"/>
+                            <constraint firstAttribute="trailing" secondItem="1Bf-te-NQE" secondAttribute="trailing" id="c1N-Eb-MEh"/>
+                            <constraint firstItem="1Bf-te-NQE" firstAttribute="height" secondItem="w2E-xc-uCp" secondAttribute="height" multiplier="0.382" id="eRB-Km-kly"/>
+                            <constraint firstItem="1Bf-te-NQE" firstAttribute="bottom" secondItem="w2E-xc-uCp" secondAttribute="bottom" id="hSk-fY-zSL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kyE-fg-Gp3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LoT-qu-I8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="-362"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JIy-s8-NBd"/>
+    </inferredMetricsTieBreakers>
 </document>
