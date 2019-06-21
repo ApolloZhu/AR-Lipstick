@@ -4,8 +4,10 @@ ARKit/Vision based virtual lipstick.
 
 ## ARKit
 
+Requires iPhone X/XR/XS/XS Max, iPad Pro (11-inch), iPad Pro (12.9-inch, 3rd generation), or other iOS devices with front-facing TrueDepth camera running iOS 11.0 or later.
+
 Mainly based on Apple’s sample code [Tracking and Visualizing Faces](https://developer.apple.com/documentation/arkit/tracking_and_visualizing_faces).
-Support for multiple faces is not yet verified, but it should work.
+Support for multiple faces is not yet verified, but it should work (I hope).
 
 I modified the original wireframe to only mask where the lips are, but it’s not very precise.
 Here’s the original file for you to make your own, probably more precise mask:
@@ -14,8 +16,10 @@ Here’s the original file for you to make your own, probably more precise mask:
 
 ## Vision
 
-Vision framework is capable of generating a low quality outline for lips,
-so it is used when the device does not support ARKit.
+Vision framework is capable of generating 
+a ***LOW QUALITY*** outline for lips,
+so it is used when the device 
+does not meet the ARKit requirements.
 See [VNFaceLandmarks2D](https://developer.apple.com/documentation/vision/vnfacelandmarks2d) for details.
 
 ## Acknowledgements
