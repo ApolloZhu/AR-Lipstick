@@ -31,4 +31,4 @@ See [VNFaceLandmarks2D](https://developer.apple.com/documentation/vision/vnfacel
 
 List of lipstick colors (and their names/brands in Chinese) are from [Ovilia/lipstick](https://github.com/Ovilia/lipstick).
 
-I never figure out how and if [grizzly3ear/lipster-mobile](https://github.com/grizzly3ear/lipster-mobile) works, but it does point me to Vision.framework.
+I never figured out how and if [grizzly3ear/lipster-mobile](https://github.com/grizzly3ear/lipster-mobile) works, but it does point me to Vision.framework.
