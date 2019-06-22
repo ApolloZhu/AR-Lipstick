@@ -50,7 +50,7 @@
         <!--Lipsticks-->
         <scene sceneID="8B7-1e-IDE">
             <objects>
-                <tableViewController storyboardIdentifier="lipstickChooserTable" title="Lipsticks" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="lipstickChooserTable" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="3ZD-FR-0RT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="342.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LAO-Gz-8Mb">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LAO-Gz-8Mb">
                                             <rect key="frame" x="15" y="0.0" width="351" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>

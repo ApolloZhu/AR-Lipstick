@@ -1,0 +1,6 @@
+/* Alert action title */
+"Restart Session" = "重试";
+
+/* Alert title */
+"The AR session failed." = "AR 识别失败";
+

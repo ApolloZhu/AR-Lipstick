@@ -153,18 +153,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelega
 
 // MARK: - Extensions
 
-extension UIImage {
-    func withTintColor(_ color: UIColor) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let rect = CGRect(origin: .zero, size: size)
-        return renderer.image { ctx in
-            color.setFill()
-            ctx.fill(rect)
-            draw(in: rect, blendMode: .destinationIn, alpha: 1)
-        }
-    }
-}
-
 extension ARFaceAnchor {
     @available(iOS 12.0, *)
     var isTongueOut: Bool {

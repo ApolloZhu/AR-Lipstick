@@ -1,0 +1,6 @@
+/* Bundle name */
+"CFBundleName" = "AR 口红";
+
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "我们需要通过前置摄像头来显示虚拟口红";
+
