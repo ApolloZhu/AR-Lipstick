@@ -93,9 +93,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, LipstickChooserDelega
         // Create a session configuration
         let configuration = ARFaceTrackingConfiguration()
         configuration.isLightEstimationEnabled = true
+        #if compiler(>=5.1)
         if #available(iOS 13.0, *) {
             configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
         }
+        #endif
         // Run the view's session
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
