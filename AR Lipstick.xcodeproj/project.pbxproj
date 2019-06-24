@@ -42,7 +42,7 @@
 		52CFA35F22BDFD0F0011189B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		52CFA36222BDFD0F0011189B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		52CFF23E22C09B4400C4A8D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		52CFF24022C0A81300C4A8D0 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "privacy.md"; sourceTree = "<group>"; };
+		52CFF24022C0A81300C4A8D0 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		591477584186CE3C5B68A02B /* Pods-AR Lipstick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.release.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.release.xcconfig"; sourceTree = "<group>"; };
 		8AD428C79A8D5E2BEF2E8581 /* Pods-AR Lipstick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.debug.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,6 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KZ7D8X3PRK;
 				INFOPLIST_FILE = "AR Lipstick/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -430,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KZ7D8X3PRK;
 				INFOPLIST_FILE = "AR Lipstick/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
