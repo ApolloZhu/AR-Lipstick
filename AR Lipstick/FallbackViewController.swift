@@ -15,9 +15,9 @@
 
 import UIKit
 import AVFoundation
-import Vision
+import FirebaseMLVision
 
-typealias Lips = (innerLips: VNFaceLandmarkRegion2D, outerLips: VNFaceLandmarkRegion2D)
+typealias Lips = [VisionFaceContour]
 
 class FallbackViewController: UIViewController, LipstickChooserDelegate {
     // MARK: - Lipsticks
@@ -43,32 +43,49 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     
     // MARK: - Rendering
     
+    var captureHeight: CGFloat!
+    var captureWidth: CGFloat!
+    
     func layerSize(forViewBounds size: CGSize) -> CGSize {
-        let larger = max(size.width, size.height)
-        let smaller = min(size.width, size.height)
-        let unit = min(larger / 16, smaller / 9)
-        if size.width > size.height {
-            return CGSize.init(width: unit * 16, height: unit * 9)
-        } else {
-            return CGSize(width: unit * 9, height: unit * 16)
-        }
+        let unit = min(size.width / captureWidth, size.height / captureHeight)
+        return CGSize(width: unit * captureWidth, height: unit * captureHeight)
+    }
+    
+    func updateLayerSizes(forViewBounds size: CGSize) {
+        let newSize = layerSize(forViewBounds: size)
+        self.shapeLayer.frame.size = newSize
+        self.previewLayer.frame.size = newSize
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { [weak self] _ in
             guard let self = self else { return }
-            let newSize = self.layerSize(forViewBounds: size)
-            self.shapeLayer.frame.size = newSize
-            self.previewLayer.frame.size = newSize
+            self.updateLayerSizes(forViewBounds: size)
         })
     }
     
     func updateForLips(_ allLips: [Lips]) {
+        guard !allLips.isEmpty else {
+            return DispatchQueue.main.async { [weak self] in
+                self?.shapeLayer.path = nil
+            }
+        }
+        let layerWidth = shapeLayer.frame.width
+        let layerHeight = shapeLayer.frame.height
+        /// X and Y coordinates are flipped probably
+        /// because CVBuffer is also flipped, but
+        /// I haven't looked into why that is the case.
+        func convert(_ point: VisionPoint) -> CGPoint {
+            return CGPoint(
+                x: CGFloat(point.y.doubleValue) * layerHeight / captureHeight,
+                y: CGFloat(point.x.doubleValue) * layerWidth / captureWidth
+            )
+        }
         let path = UIBezierPath()
         for lips in allLips {
             let allPoints = [
-                lips.innerLips.pointsInImage(imageSize: shapeLayer.frame.size),
-                lips.outerLips.pointsInImage(imageSize: shapeLayer.frame.size)
+                lips[0].points.map(convert) + lips[1].points.map(convert),
+                lips[2].points.map(convert) + lips[3].points.map(convert)
             ]
             for points in allPoints {
                 path.move(to: points.first!)
@@ -86,17 +103,16 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     let shapeLayer = CAShapeLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = layerSize(forViewBounds: view.bounds.size)
         
         lipstickColor = .black
-        shapeLayer.fillRule = .evenOdd
-        shapeLayer.frame.size = size
         shapeLayer.opacity = 0.82
+        shapeLayer.fillRule = .evenOdd
+        shapeLayer.lineJoin = .round
+        shapeLayer.lineWidth = 10
         view.layer.insertSublayer(shapeLayer, at: 0)
         
         // MARK: - Camera
         previewLayer.session = session
-        previewLayer.frame.size = size
         view.layer.insertSublayer(previewLayer, at: 0)
         
         let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)!
@@ -105,7 +121,7 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
         output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
         
         session.beginConfiguration()
-        // session.sessionPreset = .high
+        session.sessionPreset = .medium
         if session.canAddInput(input) { session.addInput(input) }
         if session.canAddOutput(output) { session.addOutput(output) }
         session.commitConfiguration()
@@ -115,54 +131,72 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     
     let previewLayer = AVCaptureVideoPreviewLayer()
     let session = AVCaptureSession()
+    
+    // MARK: - Detection
+    // https://firebase.google.com/docs/ml-kit/ios/detect-faces
+    
+    lazy var vision = Vision.vision()
+    let faceDetectorOptions: VisionFaceDetectorOptions = {
+        $0.contourMode = .all
+        return $0
+    }(VisionFaceDetectorOptions())
+    lazy var faceDetector = vision.faceDetector(options: faceDetectorOptions)
 }
 
-// MARK: - Detection
+let coutourTypes: [FaceContourType] = [.upperLipTop, .lowerLipBottom, .upperLipBottom, .lowerLipTop]
 
 extension FallbackViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let cvBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let handler = VNImageRequestHandler(
-            cvPixelBuffer: cvBuffer,
-            orientation: CGImagePropertyOrientation(connection.videoOrientation)
-        )
-        let request = VNDetectFaceLandmarksRequest(completionHandler: processLandmarks)
-        do {
-            try handler.perform([request])
-        } catch {
-            print(error)
+        if captureHeight == nil {
+            guard let cvBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            // For some reason width and height are flipped
+            let side1 = CGFloat(CVPixelBufferGetHeight(cvBuffer))
+            let side2 = CGFloat(CVPixelBufferGetWidth(cvBuffer))
+            // so we have to choose the correct value ourselves
+            captureHeight = max(side1, side2)
+            captureWidth = min(side1, side2)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.updateLayerSizes(forViewBounds: self.view!.bounds.size)
+            }
         }
+        let image = VisionImage(buffer: sampleBuffer)
+        let metadata = VisionImageMetadata()
+        metadata.orientation = imageOrientation(
+            deviceOrientation: UIDevice.current.orientation,
+            cameraPosition: .front
+        )
+        image.metadata = metadata
+        faceDetector.process(image, completion: processFaces)
     }
     
-    func processLandmarks(_ request: VNRequest, _ error: Error?) {
-        if let error = error {
-            print(error)
-        }
-        guard let results = request.results as? [VNFaceObservation] else { return }
-        let allLips: [Lips] = results.lazy.compactMap {
-            guard let landmarks = $0.landmarks
-                , let innerLips = landmarks.innerLips
-                , let outerLips = landmarks.outerLips
-                else { return nil }
-            return (innerLips, outerLips)
-        }
-        updateForLips(allLips)
+    func processFaces(_ faces: [VisionFace]?, _ error: Error?) {
+        var allLips = [Lips]()
+        defer { updateForLips(allLips) }
+        if let error = error { return print(error) }
+        guard let faces = faces, !faces.isEmpty else { return }
+        allLips = faces.lazy
+            .map { face in coutourTypes.compactMap { face.contour(ofType: $0) } }
+            .filter { $0.count == 4 }
     }
 }
 
-extension CGImagePropertyOrientation {
-    init!(_ videoOrientation: AVCaptureVideoOrientation) {
-        switch videoOrientation {
-        case .portrait:
-            self = .up
-        case .portraitUpsideDown:
-            self = .down
-        case .landscapeRight:
-            self = .right
-        case .landscapeLeft:
-            self = .left
-        @unknown default:
-            return nil
-        }
+func imageOrientation(
+    deviceOrientation: UIDeviceOrientation,
+    cameraPosition: AVCaptureDevice.Position
+) -> VisionDetectorImageOrientation {
+    switch deviceOrientation {
+    case .portrait:
+        return cameraPosition == .front ? .leftTop : .rightTop
+    case .landscapeLeft:
+        return cameraPosition == .front ? .bottomLeft : .topLeft
+    case .portraitUpsideDown:
+        return cameraPosition == .front ? .rightBottom : .leftBottom
+    case .landscapeRight:
+        return cameraPosition == .front ? .topRight : .bottomRight
+    case .faceDown, .faceUp, .unknown:
+        return .leftTop
+    @unknown default:
+        return .leftTop
     }
 }

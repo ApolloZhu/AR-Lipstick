@@ -16,17 +16,23 @@
 
 import UIKit
 import ARKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    var useFallbackImplementation: Bool {
+        return !ARFaceTrackingConfiguration.isSupported
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if targetEnvironment(simulator)
         #error("iOS Simulator doesn't have a camera. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
         #endif
-        if !ARFaceTrackingConfiguration.isSupported {
+        if useFallbackImplementation {
+            FirebaseApp.configure()
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "vision")
         }
