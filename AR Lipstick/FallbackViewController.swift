@@ -64,12 +64,19 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     
     // MARK: - Rendering
     
+    var framesMissingLips = 0
+    let maxFramesMissingLips = 5
     func updateForLips(_ allLips: [Lips]) {
         guard !allLips.isEmpty else {
+            framesMissingLips += 1
+            if framesMissingLips < maxFramesMissingLips { return }
+            // Only remove mask after we confirm there's no lips,
+            // not because Firebase only supplies data every other frame.
             return DispatchQueue.main.async { [weak self] in
                 self?.shapeLayer.path = nil
             }
         }
+        framesMissingLips = 0
         let layerWidth = shapeLayer.frame.width
         let layerHeight = shapeLayer.frame.height
         /// X and Y coordinates are flipped probably
@@ -105,7 +112,7 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
         super.viewDidLoad()
         
         lipstickColor = .black
-        shapeLayer.opacity = 0.75
+        shapeLayer.opacity = 0.5
         shapeLayer.fillRule = .evenOdd
         shapeLayer.lineJoin = .round
         shapeLayer.lineWidth = 5
