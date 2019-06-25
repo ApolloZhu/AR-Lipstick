@@ -1,5 +1,7 @@
 # AR Lipstick
 
+## [Download beta on TestFlight](https://testflight.apple.com/join/Pm0xgjIV)
+
 ARKit/FirebaseMLVision based virtual lipstick.
 
 ## ARKit
