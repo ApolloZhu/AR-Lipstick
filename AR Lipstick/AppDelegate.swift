@@ -18,14 +18,14 @@ import UIKit
 import ARKit
 import Firebase
 
+var useFallbackImplementation: Bool {
+    return !ARFaceTrackingConfiguration.isSupported
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    var useFallbackImplementation: Bool {
-        return !ARFaceTrackingConfiguration.isSupported
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if targetEnvironment(simulator)

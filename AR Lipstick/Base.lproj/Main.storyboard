@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNs-3M-Qnn">
-                                <rect key="frame" x="0.0" y="553.5" width="414" height="342.5"/>
+                                <rect key="frame" x="0.0" y="525" width="414" height="371"/>
                                 <connections>
                                     <segue destination="K1C-T4-TTt" kind="embed" identifier="segue" id="raA-dc-0OF"/>
                                 </connections>
@@ -33,7 +33,7 @@
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="U0K-SW-4ec" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="bNs-3M-Qnn" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="di5-IE-ciu"/>
-                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="height" secondItem="U0K-SW-4ec" secondAttribute="height" multiplier="0.382" id="gge-Pb-oxi"/>
+                            <constraint firstItem="bNs-3M-Qnn" firstAttribute="height" secondItem="U0K-SW-4ec" secondAttribute="height" multiplier="0.414" id="gge-Pb-oxi"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstAttribute="trailing" secondItem="bNs-3M-Qnn" secondAttribute="trailing" id="vPJ-Hk-5qZ"/>
                         </constraints>
@@ -51,8 +51,8 @@
         <scene sceneID="8B7-1e-IDE">
             <objects>
                 <tableViewController storyboardIdentifier="lipstickChooserTable" id="mBu-aJ-Iw4" customClass="LipstickTableViewController" customModule="AR_Lipstick" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" id="3ZD-FR-0RT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="342.5"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3ZD-FR-0RT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="371"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-te-NQE">
-                                <rect key="frame" x="0.0" y="553.5" width="414" height="342.5"/>
+                                <rect key="frame" x="0.0" y="525" width="414" height="371"/>
                                 <connections>
                                     <segue destination="K1C-T4-TTt" kind="embed" identifier="segue" id="JIy-s8-NBd"/>
                                 </connections>
@@ -122,7 +122,7 @@
                         <constraints>
                             <constraint firstItem="1Bf-te-NQE" firstAttribute="leading" secondItem="w2E-xc-uCp" secondAttribute="leading" id="9Xx-IW-cc8"/>
                             <constraint firstAttribute="trailing" secondItem="1Bf-te-NQE" secondAttribute="trailing" id="c1N-Eb-MEh"/>
-                            <constraint firstItem="1Bf-te-NQE" firstAttribute="height" secondItem="w2E-xc-uCp" secondAttribute="height" multiplier="0.382" id="eRB-Km-kly"/>
+                            <constraint firstItem="1Bf-te-NQE" firstAttribute="height" secondItem="w2E-xc-uCp" secondAttribute="height" multiplier="0.414" id="eRB-Km-kly"/>
                             <constraint firstItem="1Bf-te-NQE" firstAttribute="bottom" secondItem="w2E-xc-uCp" secondAttribute="bottom" id="hSk-fY-zSL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kyE-fg-Gp3"/>

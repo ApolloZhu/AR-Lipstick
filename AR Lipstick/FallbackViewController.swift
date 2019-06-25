@@ -17,8 +17,6 @@ import UIKit
 import AVFoundation
 import FirebaseMLVision
 
-typealias Lips = [VisionFaceContour]
-
 class FallbackViewController: UIViewController, LipstickChooserDelegate {
     // MARK: - Lipsticks
     
@@ -41,7 +39,7 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
         vc.delegate = self
     }
     
-    // MARK: - Rendering
+    // MARK: - Layout
     
     var captureHeight: CGFloat!
     var captureWidth: CGFloat!
@@ -63,6 +61,8 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
             self.updateLayerSizes(forViewBounds: size)
         })
     }
+    
+    // MARK: - Rendering
     
     func updateForLips(_ allLips: [Lips]) {
         guard !allLips.isEmpty else {
@@ -105,10 +105,10 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
         super.viewDidLoad()
         
         lipstickColor = .black
-        shapeLayer.opacity = 0.82
+        shapeLayer.opacity = 0.75
         shapeLayer.fillRule = .evenOdd
         shapeLayer.lineJoin = .round
-        shapeLayer.lineWidth = 10
+        shapeLayer.lineWidth = 5
         view.layer.insertSublayer(shapeLayer, at: 0)
         
         // MARK: - Camera
@@ -143,6 +143,7 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     lazy var faceDetector = vision.faceDetector(options: faceDetectorOptions)
 }
 
+typealias Lips = [VisionFaceContour]
 let coutourTypes: [FaceContourType] = [.upperLipTop, .lowerLipBottom, .upperLipBottom, .lowerLipTop]
 
 extension FallbackViewController: AVCaptureVideoDataOutputSampleBufferDelegate {

@@ -17,15 +17,15 @@ import UIKit
 
 // MARK: - Table View Data Source
 
-let allLipstickSeries: [(brand: String, indexInBrand: Int, name: String, lipsticks: [Lipstick])] = {
+let allLipstickSeries: [(brand: String, name: String, lipsticks: [Lipstick])] = {
     struct Wrapper: Decodable {
         let brands: [Lipstick.Brand]
     }
     let url = Bundle.main.url(forResource: "lipstick", withExtension: "json")!
     let all = try! JSONDecoder().decode(Wrapper.self, from: Data(contentsOf: url))
     return all.brands.flatMap { brand in
-        brand.series.enumerated().map { (index, series) in
-            return (brand: brand.name, indexInBrand: index, name: series.name, lipsticks: series.lipsticks)
+        brand.series.map { series in
+            return (brand: brand.name, name: series.name, lipsticks: series.lipsticks)
         }
     }
 }()
@@ -57,7 +57,9 @@ class LipstickTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layer.cornerRadius = 20
+        if useFallbackImplementation { return }
+        view.layer.cornerRadius = 40
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.clipsToBounds = true
     }
     
