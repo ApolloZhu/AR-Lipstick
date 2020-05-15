@@ -144,6 +144,7 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     
     lazy var vision = Vision.vision()
     let faceDetectorOptions: VisionFaceDetectorOptions = {
+        $0.performanceMode = .accurate
         $0.contourMode = .all
         return $0
     }(VisionFaceDetectorOptions())
