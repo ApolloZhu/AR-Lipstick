@@ -1,6 +1,6 @@
 # AR Lipstick
 
-## [Download beta on TestFlight](https://testflight.apple.com/join/Pm0xgjIV)
+## [Download beta on TestFlight](https://testflight.apple.com/join/IL5MiSG6)
 
 ARKit/FirebaseMLVision based virtual lipstick.
 
@@ -12,10 +12,10 @@ Mainly based on Apple’s sample code [Tracking and Visualizing Faces](https://d
 Support for multiple faces is not yet verified, but it should work (I hope).
 
 I modified the original wireframe to only mask where the lips are, but it’s not very precise.
-Here’s the preview of the [original file](.github/wireframeTexture.png) for you to make your own, 
+Here’s the **preview** of the [full size wireframe texture](assets/wireframeTexture.png) for you to make your own,
 probably more precise mask:
 
-[![Face Wireframe](.github/wireframePreview.png)](.github/wireframeTexture.png)
+[![Face Wireframe](assets/wireframePreview.png)](assets/wireframeTexture.png)
 
 ## FirebaseMLVision
 
@@ -23,7 +23,7 @@ For other devices not having ARKit face detector, we'll use MLKit to trace facia
 
 ![FirebaseMLVision Face Contours](https://firebase.google.cn/docs/ml-kit/images/examples/face_contours.svg)
 
-I highly recommend checking out the [official documentation](https://firebase.google.com/docs/ml-kit/ios/detect-faces).
+I highly recommend checking out the [official documentation](https://firebase.google.com/docs/ml-kit/ios/detect-faces) for more instructions.
 
 ### Vision
 
