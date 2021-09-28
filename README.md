@@ -2,7 +2,7 @@
 
 ## [Download beta on TestFlight](https://testflight.apple.com/join/IL5MiSG6)
 
-ARKit/FirebaseMLVision based virtual lipstick.
+ARKit/MLKit Face Detection based virtual lipstick.
 
 ## ARKit
 
@@ -17,13 +17,13 @@ probably more precise mask:
 
 [![Face Wireframe](assets/wireframePreview.png)](assets/wireframeTexture.png)
 
-## FirebaseMLVision
+## MLKit Face Detection
 
 For other devices not having ARKit face detector, we'll use MLKit to trace facial contours, like this:
 
-![FirebaseMLVision Face Contours](https://firebase.google.cn/docs/ml-kit/images/examples/face_contours.svg)
+![FirebaseMLVision Face Contours](https://developers.google.com/ml-kit/vision/face-detection/images/face_contours.svg)
 
-I highly recommend checking out the [official documentation](https://firebase.google.com/docs/ml-kit/ios/detect-faces) for more instructions.
+I highly recommend checking out the [official documentation](https://developers.google.com/ml-kit/vision/face-detection) for more instructions.
 
 ### Vision
 
@@ -36,4 +36,4 @@ see [VNFaceLandmarks2D](https://developer.apple.com/documentation/vision/vnfacel
 List of lipstick colors (and their names/brands in Chinese) are from [Ovilia/lipstick](https://github.com/Ovilia/lipstick).
 
 I never figured out how and if [grizzly3ear/lipster-mobile](https://github.com/grizzly3ear/lipster-mobile) works,
-but it does point me to Vision.framework and FirebaseMLVision.
+but it does point me to Vision.framework and FirebaseMLVision (predecessor of MLKit Face Detection).

@@ -18,7 +18,6 @@
 		52753EC522BC313200AEA1B1 /* FallbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52753EC422BC313200AEA1B1 /* FallbackViewController.swift */; };
 		52CFA36022BDFD0F0011189B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA35E22BDFD0F0011189B /* Localizable.strings */; };
 		52CFA36322BDFD0F0011189B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA36122BDFD0F0011189B /* InfoPlist.strings */; };
-		52CFF23F22C09B4800C4A8D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52CFF23E22C09B4400C4A8D0 /* GoogleService-Info.plist */; };
 		8B1F9BA04A12C710A491A1B4 /* libPods-AR Lipstick.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FB593694D7C28BDA11EE77 /* libPods-AR Lipstick.a */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		52CFA35D22BDEFFC0011189B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		52CFA35F22BDFD0F0011189B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		52CFA36222BDFD0F0011189B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		52CFF23E22C09B4400C4A8D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52CFF24022C0A81300C4A8D0 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		591477584186CE3C5B68A02B /* Pods-AR Lipstick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.release.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.release.xcconfig"; sourceTree = "<group>"; };
 		8AD428C79A8D5E2BEF2E8581 /* Pods-AR Lipstick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Lipstick.debug.xcconfig"; path = "Target Support Files/Pods-AR Lipstick/Pods-AR Lipstick.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				526BEC1922B9BC14008E60C1 /* Assets.xcassets */,
 				526BEC1B22B9BC14008E60C1 /* LaunchScreen.storyboard */,
 				526BEC1E22B9BC14008E60C1 /* Info.plist */,
-				52CFF23E22C09B4400C4A8D0 /* GoogleService-Info.plist */,
 				52CFA36122BDFD0F0011189B /* InfoPlist.strings */,
 				52CFA35E22BDFD0F0011189B /* Localizable.strings */,
 			);
@@ -184,7 +181,6 @@
 				526BEC1D22B9BC14008E60C1 /* LaunchScreen.storyboard in Resources */,
 				526BEC1A22B9BC14008E60C1 /* Assets.xcassets in Resources */,
 				526BEC1822B9BBC5008E60C1 /* Main.storyboard in Resources */,
-				52CFF23F22C09B4800C4A8D0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

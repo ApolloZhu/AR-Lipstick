@@ -4,8 +4,8 @@
  FallbackViewController.swift
  Created by Apollo Zhu on 2019/6/21.
  
- Copyright © 2019 Apollo Zhu.
- 
+ Copyright © 2019-2021 Apollo Zhu.
+
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -15,7 +15,7 @@
 
 import UIKit
 import AVFoundation
-import FirebaseMLVision
+import MLKit
 
 class FallbackViewController: UIViewController, LipstickChooserDelegate {
     // MARK: - Lipsticks
@@ -84,8 +84,8 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
         /// I haven't looked into why that is the case.
         func convert(_ point: VisionPoint) -> CGPoint {
             return CGPoint(
-                x: CGFloat(point.y.doubleValue) * layerHeight / captureHeight,
-                y: CGFloat(point.x.doubleValue) * layerWidth / captureWidth
+                x: point.y * layerHeight / captureHeight,
+                y: point.x * layerWidth / captureWidth
             )
         }
         let path = UIBezierPath()
@@ -140,22 +140,23 @@ class FallbackViewController: UIViewController, LipstickChooserDelegate {
     let session = AVCaptureSession()
     
     // MARK: - Detection
-    // https://firebase.google.com/docs/ml-kit/ios/detect-faces
+    // https://developers.google.com/ml-kit/vision/face-detection/ios
     
-    lazy var vision = Vision.vision()
-    let faceDetectorOptions: VisionFaceDetectorOptions = {
+    let faceDetectorOptions: FaceDetectorOptions = {
         $0.performanceMode = .accurate
         $0.contourMode = .all
         return $0
-    }(VisionFaceDetectorOptions())
-    lazy var faceDetector = vision.faceDetector(options: faceDetectorOptions)
+    }(FaceDetectorOptions())
+    lazy var faceDetector = FaceDetector.faceDetector(options: faceDetectorOptions)
 }
 
-typealias Lips = [VisionFaceContour]
+typealias Lips = [FaceContour]
 let coutourTypes: [FaceContourType] = [.upperLipTop, .lowerLipBottom, .upperLipBottom, .lowerLipTop]
 
 extension FallbackViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    func captureOutput(_ output: AVCaptureOutput,
+                       didOutput sampleBuffer: CMSampleBuffer,
+                       from connection: AVCaptureConnection) {
         if captureHeight == nil {
             guard let cvBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             // For some reason width and height are flipped
@@ -170,16 +171,14 @@ extension FallbackViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
         }
         let image = VisionImage(buffer: sampleBuffer)
-        let metadata = VisionImageMetadata()
-        metadata.orientation = imageOrientation(
+        image.orientation = imageOrientation(
             deviceOrientation: UIDevice.current.orientation,
             cameraPosition: .front
         )
-        image.metadata = metadata
         faceDetector.process(image, completion: processFaces)
     }
     
-    func processFaces(_ faces: [VisionFace]?, _ error: Error?) {
+    func processFaces(_ faces: [Face]?, _ error: Error?) {
         var allLips = [Lips]()
         defer { updateForLips(allLips) }
         if let error = error { return print(error) }
@@ -193,19 +192,19 @@ extension FallbackViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 func imageOrientation(
     deviceOrientation: UIDeviceOrientation,
     cameraPosition: AVCaptureDevice.Position
-) -> VisionDetectorImageOrientation {
+) -> UIImage.Orientation {
     switch deviceOrientation {
     case .portrait:
-        return cameraPosition == .front ? .leftTop : .rightTop
+        return cameraPosition == .front ? .leftMirrored : .right
     case .landscapeLeft:
-        return cameraPosition == .front ? .bottomLeft : .topLeft
+        return cameraPosition == .front ? .downMirrored : .up
     case .portraitUpsideDown:
-        return cameraPosition == .front ? .rightBottom : .leftBottom
+        return cameraPosition == .front ? .rightMirrored : .left
     case .landscapeRight:
-        return cameraPosition == .front ? .topRight : .bottomRight
+        return cameraPosition == .front ? .upMirrored : .down
     case .faceDown, .faceUp, .unknown:
-        return .leftTop
+        return .up
     @unknown default:
-        return .leftTop
+        return .up
     }
 }
